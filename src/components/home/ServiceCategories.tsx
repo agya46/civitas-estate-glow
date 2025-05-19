@@ -6,10 +6,11 @@ import {
   Home, 
   PaintRoller, 
   Building, 
-  SolarPanel, 
-  SecuritySystem,
+  Sun, // Replacing SolarPanel with Sun
+  ShieldCheck, // Replacing SecuritySystem with ShieldCheck
   House
 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const services = [
   {
@@ -85,5 +86,3 @@ const ServiceCategories = () => {
 };
 
 export default ServiceCategories;
-
-import { ArrowRight } from 'lucide-react';

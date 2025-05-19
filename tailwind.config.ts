@@ -65,9 +65,9 @@ export default {
 				},
 				// Custom colors for Civitas
 				civitas: {
-					primary: '#906C46', // warm brown
-					secondary: '#D8C3A5', // beige
-					accent: '#5E8B7E', // sage green
+					primary: '#05513D', // updated to dark green from logo
+					secondary: '#E5713D', // updated to orange from logo
+					accent: '#5E8B7E', // sage green accent
 					light: '#F2F1E8', // off-white
 					dark: '#2C363F', // dark blue-gray
 				}

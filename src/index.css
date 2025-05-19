@@ -14,10 +14,10 @@
     --popover: 45 33% 98%;
     --popover-foreground: 222 47% 11%;
     
-    --primary: 32 35% 42%;
+    --primary: 162 70% 17%; /* Updated to match the dark green */
     --primary-foreground: 45 33% 98%;
     
-    --secondary: 36 39% 75%;
+    --secondary: 16 72% 57%; /* Updated to match the orange */
     --secondary-foreground: 222 47% 11%;
     
     --muted: 36 20% 92%;
@@ -31,7 +31,7 @@
     
     --border: 36 39% 75%;
     --input: 36 39% 75%;
-    --ring: 32 35% 42%;
+    --ring: 162 70% 17%;
     
     --radius: 0.5rem;
 

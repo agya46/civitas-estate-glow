@@ -4,11 +4,18 @@ import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-civitas-dark text-white">
+    <footer className="bg-civitas-primary text-white">
       <div className="container mx-auto py-12 px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4 text-civitas-secondary">Civitas</h3>
+            <div className="flex items-center space-x-3 mb-4">
+              <img 
+                src="/lovable-uploads/54ba51e1-ce1c-4d23-ba25-a1ea13a526d7.png" 
+                alt="Civitas Logo" 
+                className="h-10 w-10 bg-white rounded-full p-1"
+              />
+              <h3 className="text-xl font-bold text-civitas-secondary">Civitas</h3>
+            </div>
             <p className="text-sm text-gray-300 mb-4">
               Professional estate maintenance and management services with a commitment to quality, sustainability, and customer satisfaction.
             </p>

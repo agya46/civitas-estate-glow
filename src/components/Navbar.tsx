@@ -21,9 +21,16 @@ const Navbar = () => {
     <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-5'}`}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-civitas-dark">Civitas</span>
-            <span className="text-lg text-civitas-primary">Estate & Maintenance</span>
+          <Link to="/" className="flex items-center space-x-3">
+            <img 
+              src="/lovable-uploads/54ba51e1-ce1c-4d23-ba25-a1ea13a526d7.png" 
+              alt="Civitas Logo" 
+              className="h-10 w-10"
+            />
+            <div>
+              <span className="text-2xl font-bold text-civitas-primary">Civitas</span>
+              <span className="text-lg text-civitas-secondary ml-1">Estate & Maintenance</span>
+            </div>
           </Link>
           
           {/* Desktop Navigation */}
@@ -40,7 +47,7 @@ const Navbar = () => {
             <Link to="/contact" className="text-civitas-dark hover:text-civitas-primary transition-colors">
               Contact
             </Link>
-            <Button asChild className="btn-primary">
+            <Button asChild className="bg-civitas-primary hover:bg-civitas-primary/90 text-white">
               <Link to="/contact">Book Now</Link>
             </Button>
           </nav>
@@ -88,7 +95,7 @@ const Navbar = () => {
             >
               Contact
             </Link>
-            <Button asChild className="btn-primary w-full">
+            <Button asChild className="bg-civitas-primary hover:bg-civitas-primary/90 text-white w-full">
               <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Book Now</Link>
             </Button>
           </div>

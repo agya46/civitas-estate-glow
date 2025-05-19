@@ -49,7 +49,7 @@ const portfolioData = [
       text: "The smart home system has transformed how we use and manage our vacation home. Guests love the convenience, and we love being able to monitor and control everything remotely. The Civitas team made the whole process painless.",
       author: "Robert Chen, Property Owner"
     }
-  },
+  }
   // Other portfolio items would be added here
 ];
 

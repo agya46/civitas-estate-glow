@@ -41,6 +41,9 @@ const Navbar = () => {
             <Link to="/services" className="text-civitas-dark hover:text-civitas-primary transition-colors">
               Services
             </Link>
+            <Link to="/portfolio" className="text-civitas-dark hover:text-civitas-primary transition-colors">
+              Portfolio
+            </Link>
             <Link to="/about" className="text-civitas-dark hover:text-civitas-primary transition-colors">
               About
             </Link>
@@ -80,6 +83,13 @@ const Navbar = () => {
               className="text-civitas-dark hover:text-civitas-primary transition-colors p-2"
             >
               Services
+            </Link>
+            <Link 
+              to="/portfolio" 
+              onClick={() => setIsMenuOpen(false)}
+              className="text-civitas-dark hover:text-civitas-primary transition-colors p-2"
+            >
+              Portfolio
             </Link>
             <Link 
               to="/about" 

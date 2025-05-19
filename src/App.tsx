@@ -11,6 +11,15 @@ import Contact from "./pages/Contact";
 import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
 
+// Service Detail Pages
+import MaintenanceElectricals from "./pages/services/MaintenanceElectricals";
+import InstallationsSmart from "./pages/services/InstallationsSmart";
+import RenovationInterior from "./pages/services/RenovationInterior";
+
+// Portfolio Pages
+import Portfolio from "./pages/Portfolio";
+import PortfolioDetail from "./pages/PortfolioDetail";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -25,6 +34,16 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/thank-you" element={<ThankYou />} />
+          
+          {/* Service Detail Pages */}
+          <Route path="/services/maintenance/electricals" element={<MaintenanceElectricals />} />
+          <Route path="/services/installations/smart-tech" element={<InstallationsSmart />} />
+          <Route path="/services/renovation/interior" element={<RenovationInterior />} />
+          
+          {/* Portfolio Pages */}
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/portfolio/:id" element={<PortfolioDetail />} />
+          
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

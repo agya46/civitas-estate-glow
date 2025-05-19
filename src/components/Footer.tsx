@@ -29,6 +29,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><Link to="/" className="text-gray-300 hover:text-white transition-colors">Home</Link></li>
               <li><Link to="/services" className="text-gray-300 hover:text-white transition-colors">Services</Link></li>
+              <li><Link to="/portfolio" className="text-gray-300 hover:text-white transition-colors">Portfolio</Link></li>
               <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">About Us</Link></li>
               <li><Link to="/contact" className="text-gray-300 hover:text-white transition-colors">Contact</Link></li>
             </ul>
@@ -37,9 +38,9 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4 text-civitas-secondary">Our Services</h3>
             <ul className="space-y-2">
-              <li><Link to="/services/maintenance" className="text-gray-300 hover:text-white transition-colors">Maintenance</Link></li>
-              <li><Link to="/services/installations" className="text-gray-300 hover:text-white transition-colors">Installations</Link></li>
-              <li><Link to="/services/renovation" className="text-gray-300 hover:text-white transition-colors">Renovation & Remodeling</Link></li>
+              <li><Link to="/services/maintenance/electricals" className="text-gray-300 hover:text-white transition-colors">Maintenance</Link></li>
+              <li><Link to="/services/installations/smart-tech" className="text-gray-300 hover:text-white transition-colors">Installations</Link></li>
+              <li><Link to="/services/renovation/interior" className="text-gray-300 hover:text-white transition-colors">Renovation & Remodeling</Link></li>
               <li><Link to="/services/property-management" className="text-gray-300 hover:text-white transition-colors">Property Management</Link></li>
               <li><Link to="/services/architectural-design" className="text-gray-300 hover:text-white transition-colors">Architectural Design</Link></li>
             </ul>

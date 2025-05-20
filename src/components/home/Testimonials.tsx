@@ -53,7 +53,7 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' }, []);
   const [activeIndex, setActiveIndex] = useState(0);
   
   useEffect(() => {

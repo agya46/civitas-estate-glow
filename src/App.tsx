@@ -19,19 +19,19 @@ import PropertyManagement from "./pages/services/PropertyManagement";
 import ArchitecturalDesign from "./pages/services/ArchitecturalDesign";
 
 // Maintenance Service Detail Pages
-import MaintenanceElectricals from "./pages/services/maintenance/MaintenanceElectricals";
+import MaintenanceElectricals from "./pages/services/MaintenanceElectricals";
 import PlumbingService from "./pages/services/maintenance/Plumbing";
 import CleaningService from "./pages/services/maintenance/Cleaning";
 import CarpentryService from "./pages/services/maintenance/Carpentry";
 import PaintingService from "./pages/services/maintenance/Painting";
 
 // Installations Service Detail Pages
-import InstallationsSmart from "./pages/services/installations/InstallationsSmart";
+import InstallationsSmart from "./pages/services/InstallationsSmart";
 import SolarPanelsService from "./pages/services/installations/SolarPanels";
 import SecuritySystemsService from "./pages/services/installations/SecuritySystems";
 
 // Renovation Service Detail Pages
-import RenovationInterior from "./pages/services/renovation/RenovationInterior";
+import RenovationInterior from "./pages/services/RenovationInterior";
 import ExteriorRenovationService from "./pages/services/renovation/Exterior";
 import GardenRenovationService from "./pages/services/renovation/Garden";
 import GreenConstructionService from "./pages/services/renovation/GreenConstruction";

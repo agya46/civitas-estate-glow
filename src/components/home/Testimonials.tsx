@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { 
   Carousel,
@@ -53,6 +52,7 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+  // Fix: Adding the second argument (plugins array) to useEmblaCarousel hook
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' }, []);
   const [activeIndex, setActiveIndex] = useState(0);
   

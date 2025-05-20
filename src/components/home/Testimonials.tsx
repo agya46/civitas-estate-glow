@@ -143,7 +143,7 @@ const Testimonials = () => {
             {testimonials.map((_, index) => (
               <button
                 key={index}
-                onClick={() => emblaApi?.scrollTo(index)}
+                onClick={() => emblaApi?.scrollTo(index, true)}
                 className={`w-3 h-3 rounded-full transition-all ${
                   activeIndex === index ? 'bg-white scale-125' : 'bg-white/30'
                 }`}

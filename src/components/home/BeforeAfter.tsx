@@ -10,39 +10,10 @@ import {
 } from "@/components/ui/carousel";
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-
-const portfolioItems = [
-  {
-    id: 1,
-    title: "Kitchen Renovation",
-    category: "Interior Renovation",
-    location: "Westlake Hills",
-    before: "https://images.unsplash.com/photo-1556912167-f556f1f39fdf?auto=format&fit=crop&q=80&w=600",
-    after: "https://images.unsplash.com/photo-1556912173-3bb406ef7e8d?auto=format&fit=crop&q=80&w=600",
-    link: "/portfolio/1"
-  },
-  {
-    id: 2,
-    title: "Backyard Transformation",
-    category: "Garden Renovation",
-    location: "Lakeside View",
-    before: "https://images.unsplash.com/photo-1591371895146-bf3d0f186d5b?auto=format&fit=crop&q=80&w=600",
-    after: "https://images.unsplash.com/photo-1568419298330-16a4d92e20af?auto=format&fit=crop&q=80&w=600",
-    link: "/portfolio/2"
-  },
-  {
-    id: 3,
-    title: "Office Building Maintenance",
-    category: "Commercial Property Management",
-    location: "Downtown Business District",
-    before: "https://images.unsplash.com/photo-1547089294-9e63e85a0961?auto=format&fit=crop&q=80&w=600",
-    after: "https://images.unsplash.com/photo-1629294017486-03f298ad6629?auto=format&fit=crop&q=80&w=600",
-    link: "/portfolio/3"
-  }
-];
+import { portfolioData } from '@/data/portfolioData';
 
 const BeforeAfter = () => {
-  const [activeItem, setActiveItem] = useState(portfolioItems[0]);
+  const [activeItem, setActiveItem] = useState(portfolioData[0]);
 
   return (
     <section className="section-padding bg-white">
@@ -61,7 +32,7 @@ const BeforeAfter = () => {
                 <div className="relative">
                   <span className="absolute top-2 left-2 bg-white/80 text-civitas-dark text-xs font-medium py-1 px-2 rounded">BEFORE</span>
                   <img 
-                    src={activeItem.before} 
+                    src={activeItem.beforeImage} 
                     alt={`${activeItem.title} before`} 
                     className="rounded h-72 w-full object-cover"
                   />
@@ -69,7 +40,7 @@ const BeforeAfter = () => {
                 <div className="relative">
                   <span className="absolute top-2 left-2 bg-civitas-primary text-white text-xs font-medium py-1 px-2 rounded">AFTER</span>
                   <img 
-                    src={activeItem.after} 
+                    src={activeItem.afterImage} 
                     alt={`${activeItem.title} after`} 
                     className="rounded h-72 w-full object-cover"
                   />
@@ -80,14 +51,14 @@ const BeforeAfter = () => {
             <div className="mt-4">
               <Carousel className="w-full">
                 <CarouselContent>
-                  {portfolioItems.map((item) => (
+                  {portfolioData.map((item) => (
                     <CarouselItem key={item.id} className="basis-1/3 md:basis-1/4 lg:basis-1/3">
                       <button 
                         onClick={() => setActiveItem(item)}
                         className={`w-full p-1 rounded ${activeItem.id === item.id ? 'ring-2 ring-civitas-primary' : 'opacity-70'}`}
                       >
                         <img 
-                          src={item.after} 
+                          src={item.afterImage} 
                           alt={item.title} 
                           className="h-20 w-full object-cover rounded"
                         />
@@ -106,7 +77,7 @@ const BeforeAfter = () => {
           <div className="lg:pl-8">
             <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
               <span className="inline-block bg-civitas-secondary/20 text-civitas-secondary px-3 py-1 rounded-full text-sm font-medium mb-4">
-                {activeItem.category}
+                {activeItem.categoryName}
               </span>
               
               <h3 className="text-2xl font-bold text-civitas-dark mb-4">
@@ -133,7 +104,7 @@ const BeforeAfter = () => {
               </ul>
               
               <Button asChild>
-                <Link to={activeItem.link} className="inline-flex items-center">
+                <Link to={`/portfolio/${activeItem.id}`} className="inline-flex items-center">
                   View Project Details <ArrowRight className="ml-2" size={16} />
                 </Link>
               </Button>

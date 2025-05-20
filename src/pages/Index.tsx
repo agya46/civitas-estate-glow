@@ -8,6 +8,7 @@ import OnboardingWidget from '../components/home/OnboardingWidget';
 import TrustSignals from '../components/home/TrustSignals';
 import BeforeAfter from '../components/home/BeforeAfter';
 import Faq from '../components/home/Faq';
+import PartnerLogos from '../components/home/PartnerLogos';
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <TrustSignals />
       <BeforeAfter />
       <Testimonials />
+      <PartnerLogos />
       <Faq />
       <CtaSection />
     </Layout>

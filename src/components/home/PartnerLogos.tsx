@@ -8,33 +8,33 @@ import {
 const partners = [
   {
     id: 1,
-    name: 'Acme Corporation',
-    logo: 'https://placehold.co/200x80?text=ACME'
+    name: 'Acme Construction',
+    logo: 'https://images.unsplash.com/photo-1560179304-c5a71bc094ed?auto=format&fit=crop&q=80&w=200'
   },
   {
     id: 2,
     name: 'TechBuild Inc.',
-    logo: 'https://placehold.co/200x80?text=TechBuild'
+    logo: 'https://images.unsplash.com/photo-1661956602944-249bcd04b63f?auto=format&fit=crop&q=80&w=200'
   },
   {
     id: 3,
     name: 'GreenWorks',
-    logo: 'https://placehold.co/200x80?text=GreenWorks'
+    logo: 'https://images.unsplash.com/photo-1560472355-536de3962603?auto=format&fit=crop&q=80&w=200'
   },
   {
     id: 4,
     name: 'BuildRight Construction',
-    logo: 'https://placehold.co/200x80?text=BuildRight'
+    logo: 'https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?auto=format&fit=crop&q=80&w=200'
   },
   {
     id: 5,
     name: 'EcoRenovate',
-    logo: 'https://placehold.co/200x80?text=EcoRenovate'
+    logo: 'https://images.unsplash.com/photo-1587614313085-5da51cebd8ac?auto=format&fit=crop&q=80&w=200'
   },
   {
     id: 6,
     name: 'Urban Designs',
-    logo: 'https://placehold.co/200x80?text=UrbanDesigns'
+    logo: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=200'
   }
 ];
 
@@ -58,11 +58,11 @@ const PartnerLogos = () => {
             <CarouselContent>
               {partners.map((partner) => (
                 <CarouselItem key={partner.id} className="basis-full md:basis-1/3 lg:basis-1/6 pl-4">
-                  <div className="p-4 flex items-center justify-center h-24">
+                  <div className="p-4 flex items-center justify-center h-24 bg-white rounded-lg shadow-sm">
                     <img 
                       src={partner.logo} 
                       alt={partner.name} 
-                      className="max-h-16 opacity-80 hover:opacity-100 transition-opacity"
+                      className="max-h-16 max-w-full object-contain opacity-80 hover:opacity-100 transition-opacity"
                     />
                   </div>
                 </CarouselItem>

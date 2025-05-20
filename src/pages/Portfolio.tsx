@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { portfolioData } from '@/data/portfolioData';
 
 // Portfolio categories
 const categories = [
@@ -16,64 +17,12 @@ const categories = [
   { id: 'architectural', name: 'Architectural Design' }
 ];
 
-// Sample portfolio items
-const portfolioItems = [
-  {
-    id: 'modern-kitchen-remodel',
-    title: 'Modern Kitchen Remodel',
-    category: 'renovation',
-    image: 'https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&q=80',
-    description: 'Complete kitchen renovation with custom cabinetry and smart appliances.',
-    location: 'Downtown Residence'
-  },
-  {
-    id: 'smart-home-integration',
-    title: 'Smart Home Integration',
-    category: 'installations',
-    image: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80',
-    description: 'Comprehensive smart home system with integrated security and automation.',
-    location: 'Lakeside Villa'
-  },
-  {
-    id: 'electrical-system-upgrade',
-    title: 'Electrical System Upgrade',
-    category: 'maintenance',
-    image: 'https://images.unsplash.com/photo-1581094282522-5ce8ad070c7d?auto=format&fit=crop&q=80',
-    description: 'Complete electrical rewiring and panel upgrade for an older property.',
-    location: 'Heritage Building'
-  },
-  {
-    id: 'luxury-bathroom-renovation',
-    title: 'Luxury Bathroom Renovation',
-    category: 'renovation',
-    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80',
-    description: 'High-end bathroom remodel with custom tile work and premium fixtures.',
-    location: 'Suburban Estate'
-  },
-  {
-    id: 'commercial-property-management',
-    title: 'Commercial Property Management',
-    category: 'property-management',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80',
-    description: 'Ongoing maintenance and management of a multi-tenant commercial building.',
-    location: 'Business District'
-  },
-  {
-    id: 'custom-home-design',
-    title: 'Custom Home Design',
-    category: 'architectural',
-    image: 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&q=80',
-    description: 'Architectural design and planning for a modern sustainable home.',
-    location: 'Hillside Development'
-  }
-];
-
 const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = React.useState('all');
   
   const filteredPortfolio = selectedCategory === 'all'
-    ? portfolioItems
-    : portfolioItems.filter(item => item.category === selectedCategory);
+    ? portfolioData
+    : portfolioData.filter(item => item.category === selectedCategory);
 
   return (
     <Layout>
@@ -116,7 +65,7 @@ const Portfolio = () => {
               <Card key={item.id} className="overflow-hidden hover-lift">
                 <div className="h-60 overflow-hidden">
                   <img 
-                    src={item.image} 
+                    src={item.coverImage} 
                     alt={item.title} 
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
@@ -124,12 +73,12 @@ const Portfolio = () => {
                 <CardContent className="p-6">
                   <div className="mb-2">
                     <span className="text-xs uppercase font-semibold text-civitas-primary bg-civitas-primary/10 py-1 px-2 rounded">
-                      {categories.find(cat => cat.id === item.category)?.name}
+                      {item.categoryName}
                     </span>
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                   <p className="text-civitas-dark/70 text-sm mb-2">{item.location}</p>
-                  <p className="text-civitas-dark/80">{item.description}</p>
+                  <p className="text-civitas-dark/80">{item.description.substring(0, 100)}...</p>
                 </CardContent>
                 <CardFooter className="bg-gray-50 p-4 border-t">
                   <Link 

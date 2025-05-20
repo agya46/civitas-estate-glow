@@ -19,6 +19,7 @@ const serviceCategories = [
     description: 'Comprehensive maintenance services to keep your property in perfect condition.',
     icon: Wrench,
     color: 'bg-blue-50 text-blue-700',
+    link: '/services/maintenance',
     subservices: [
       { name: 'Electricals', link: '/services/maintenance/electricals' },
       { name: 'Plumbing', link: '/services/maintenance/plumbing' },
@@ -33,6 +34,7 @@ const serviceCategories = [
     description: 'Expert installation services for modern technology and systems.',
     icon: Plug,
     color: 'bg-green-50 text-green-700',
+    link: '/services/installations',
     subservices: [
       { name: 'Smart Tech', link: '/services/installations/smart-tech' },
       { name: 'Solar Panels', link: '/services/installations/solar-panels' },
@@ -45,6 +47,7 @@ const serviceCategories = [
     description: 'Transform your spaces with our professional renovation services.',
     icon: PaintRoller,
     color: 'bg-amber-50 text-amber-700',
+    link: '/services/renovation',
     subservices: [
       { name: 'Interior', link: '/services/renovation/interior' },
       { name: 'Exterior', link: '/services/renovation/exterior' },
@@ -58,6 +61,7 @@ const serviceCategories = [
     description: 'Complete property management services for residential and commercial properties.',
     icon: Building,
     color: 'bg-purple-50 text-purple-700',
+    link: '/services/property-management',
     subservices: [
       { name: 'Residential', link: '/services/property-management/residential' },
       { name: 'Commercial', link: '/services/property-management/commercial' }
@@ -69,6 +73,7 @@ const serviceCategories = [
     description: 'Professional design and planning services for your property projects.',
     icon: House,
     color: 'bg-indigo-50 text-indigo-700',
+    link: '/services/architectural-design',
     subservices: []
   }
 ];
@@ -107,7 +112,7 @@ const ServicesOverview = () => {
                     <p className="text-lg text-civitas-dark/80 mb-4">{category.description}</p>
                     
                     <Link 
-                      to={`/services/${category.id}`} 
+                      to={category.link} 
                       className="text-civitas-primary font-medium flex items-center hover:underline"
                     >
                       Learn more about {category.title} <ArrowRight className="ml-2" size={16} />

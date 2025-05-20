@@ -79,12 +79,12 @@ export const portfolioData: PortfolioItemType[] = [
     beforeImage: 'https://images.unsplash.com/photo-1563347681-6532113a4bf1?auto=format&fit=crop&q=80',
     afterImage: 'https://images.unsplash.com/photo-1581094282522-5ce8ad070c7d?auto=format&fit=crop&q=80',
     description: 'Complete electrical rewiring and panel upgrade for an older property to meet modern safety standards and power requirements.',
-    challenge: 'The building's historical status required preserving architectural elements while bringing the electrical system up to code, without disrupting the daily operations of tenant businesses.',
+    challenge: 'The building\'s historical status required preserving architectural elements while bringing the electrical system up to code, without disrupting the daily operations of tenant businesses.',
     solution: 'Our specialized team developed a phased implementation plan with after-hours work schedules and temporary power solutions to minimize business interruption. We used minimally invasive techniques to protect historical features.',
     services: ['Electrical Assessment', 'Panel Upgrades', 'Rewiring', 'Safety Inspections', 'Lighting Upgrades'],
     features: ['Modern circuit breaker panels', 'Enhanced safety features', 'Increased power capacity', 'Energy-efficient wiring solutions', 'Smart electrical monitoring'],
     testimonial: {
-      text: "The Civitas team handled our complex electrical upgrade with impressive professionalism. They respected our building's historical features and kept disruption to an absolute minimum for our tenants.",
+      text: "The Civitas team handled our complex electrical upgrade with impressive professionalism. They respected our building\'s historical features and kept disruption to an absolute minimum for our tenants.",
       author: "Daniel Harrison, Property Manager"
     }
   },
@@ -100,7 +100,7 @@ export const portfolioData: PortfolioItemType[] = [
     beforeImage: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&q=80',
     afterImage: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80',
     description: 'High-end bathroom remodel with custom tile work and premium fixtures, transforming an outdated space into a luxurious spa-like retreat.',
-    challenge: 'The existing bathroom had significant water damage beneath the surface that wasn't apparent until demolition began. The client also requested an expanded shower area without changing the room's footprint.',
+    challenge: 'The existing bathroom had significant water damage beneath the surface that wasn\'t apparent until demolition began. The client also requested an expanded shower area without changing the room\'s footprint.',
     solution: 'We remediated the water damage and restructured the layout to accommodate a larger shower. By using space-saving fixtures and creating a wet room concept, we maximized the available area while adding luxury elements.',
     services: ['Interior Design', 'Waterproofing', 'Custom Tiling', 'Plumbing Installation', 'Lighting Design'],
     features: ['Heated flooring system', 'Custom glass shower enclosure', 'Rainfall shower head', 'Double vanity with marble countertop', 'Smart mirrors with integrated lighting'],
@@ -126,7 +126,7 @@ export const portfolioData: PortfolioItemType[] = [
     services: ['Tenant Relations', 'Preventive Maintenance', 'Financial Management', 'Vendor Coordination', 'Emergency Response'],
     features: ['24/7 emergency service', 'Online tenant portal', 'Quarterly property inspections', 'Capital improvement planning', 'Energy efficiency initiatives'],
     testimonial: {
-      text: "Civitas has transformed our property's performance in just six months. Vacancy rates are down, tenant satisfaction is up, and operating costs have been reduced through their efficient management approach.",
+      text: "Civitas has transformed our property\'s performance in just six months. Vacancy rates are down, tenant satisfaction is up, and operating costs have been reduced through their efficient management approach.",
       author: "James Wilson, Investment Director"
     }
   },

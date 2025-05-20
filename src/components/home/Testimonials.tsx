@@ -69,7 +69,7 @@ const Testimonials = () => {
       if (emblaApi.canScrollNext()) {
         emblaApi.scrollNext();
       } else {
-        emblaApi.scrollTo(0);
+        emblaApi.scrollTo(0, true);
       }
     }, 5000);
     

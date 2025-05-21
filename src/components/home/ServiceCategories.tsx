@@ -73,7 +73,7 @@ const services = [
     icon: House,
     link: '/services/architectural-design',
     color: 'bg-indigo-50 text-indigo-700',
-    image: 'https://images.unsplash.com/photo-1535557597501-0fee0a500c57?auto=format&fit=crop&q=80&w=500',
+    image: 'https://images.unsplash.com/photo-1460574283810-2aab119d8511?auto=format&fit=crop&q=80&w=500',
     subServices: [
       { name: 'Custom Design', link: '/services/architectural-design' },
       { name: 'Blueprint Planning', link: '/services/architectural-design' },

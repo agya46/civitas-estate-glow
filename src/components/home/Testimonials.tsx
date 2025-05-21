@@ -1,157 +1,132 @@
-
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Star } from 'lucide-react';
 import { 
-  Carousel,
-  CarouselContent,
-  CarouselItem
-} from "@/components/ui/carousel";
-import { Card, CardContent } from "@/components/ui/card";
-import { Star, Quote } from 'lucide-react';
-import useEmblaCarousel from 'embla-carousel-react';
+  useEmblaCarousel, 
+  EmblaCarouselType 
+} from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 
 const testimonials = [
   {
     id: 1,
-    name: 'Sarah Johnson',
-    position: 'Homeowner',
-    location: 'Lakeside District',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120',
-    quote: 'Civitas transformed my home renovation experience. Their team was professional, timely, and delivered exceptional quality work. I couldn\'t be happier with the results!',
-    rating: 5,
-    service: 'Kitchen Renovation'
+    name: 'Ama Serwaa',
+    title: 'Property Owner',
+    text: "Civitas has been a game-changer for managing my properties. Their maintenance team is responsive and professional, ensuring my tenants are always satisfied.",
+    image: 'https://images.unsplash.com/photo-1573496800643-6135b3ebad96?auto=format&fit=crop&q=80&w=200',
+    rating: 5
   },
   {
     id: 2,
-    name: 'Michael Chen',
-    position: 'Property Manager',
-    location: 'Downtown Area',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120',
-    quote: 'We\'ve been using Civitas for all our properties for over 3 years. Their consistency and attention to detail is unmatched in the industry. They\'re our go-to maintenance partner.',
-    rating: 5,
-    service: 'Property Management'
+    name: 'Kwame Boateng',
+    title: 'Real Estate Investor',
+    text: "I've used Civitas for several renovation projects, and their attention to detail is unmatched. They consistently deliver high-quality results on time and within budget.",
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200',
+    rating: 4
   },
   {
     id: 3,
-    name: 'Emma Rodriguez',
-    position: 'Business Owner',
-    location: 'West End',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=120',
-    quote: 'The team at Civitas helped us redesign our commercial space. They were collaborative, innovative, and delivered on time and on budget. Our customers love the new look!',
-    rating: 5,
-    service: 'Commercial Renovation'
+    name: 'Nana Yaa',
+    title: 'Homeowner',
+    text: "From plumbing repairs to electrical work, Civitas handles all my home maintenance needs. Their 24/7 emergency service is a lifesaver!",
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200',
+    rating: 5
   },
   {
     id: 4,
-    name: 'David Smith',
-    position: 'Real Estate Investor',
-    location: 'Riverside Estates',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=120',
-    quote: 'I manage multiple rental properties and Civitas has been instrumental in maintaining them all. Their 24/7 emergency service has saved me countless headaches. Highly recommended!',
-    rating: 5,
-    service: 'Maintenance Services'
+    name: 'Kofi Mensah',
+    title: 'Commercial Property Manager',
+    text: "Civitas provides comprehensive property management services for my commercial properties. Their proactive approach and transparent communication make them an invaluable partner.",
+    image: 'https://images.unsplash.com/photo-1544006659-f0b21884cebd?auto=format&fit=crop&q=80&w=200',
+    rating: 4
   },
+  {
+    id: 5,
+    name: 'Abena Serwaa',
+    title: 'Landlord',
+    text: "I highly recommend Civitas for anyone looking for reliable and efficient property maintenance services. Their team is professional, courteous, and always goes the extra mile.",
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b2933e?auto=format&fit=crop&q=80&w=200',
+    rating: 5
+  }
 ];
 
 const Testimonials = () => {
-  // Fix: Adding the second argument (plugins array) to useEmblaCarousel hook
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' }, []);
-  const [activeIndex, setActiveIndex] = useState(0);
-  
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 5000, stopOnInteraction: false }),
+  ]);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
+  const scrollTo = useCallback(
+    (index: number) => {
+      emblaApi && emblaApi.scrollTo(index, true);
+    },
+    [emblaApi]
+  );
+
   useEffect(() => {
     if (!emblaApi) return;
-    
-    emblaApi.on('select', () => {
-      setActiveIndex(emblaApi.selectedScrollSnap());
-    });
-    
-    // Auto scroll
-    const interval = setInterval(() => {
-      if (emblaApi.canScrollNext()) {
-        emblaApi.scrollNext();
-      } else {
-        emblaApi.scrollTo(0, true);
-      }
-    }, 5000);
-    
-    return () => {
-      clearInterval(interval);
-      emblaApi.off('select');
+
+    setScrollSnaps(emblaApi.scrollSnapList());
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
     };
-  }, [emblaApi]);
-  
+
+    emblaApi.on("select", onSelect);
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi, setScrollSnaps, setSelectedIndex]);
+
   return (
-    <section className="section-padding bg-civitas-primary text-white">
+    <section className="section-padding">
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
-          <p className="text-lg opacity-90 max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our satisfied clients have to say about our services.
+          <p className="text-lg text-civitas-dark/80 max-w-2xl mx-auto">
+            Read testimonials from our satisfied clients and discover why they trust us with their properties.
           </p>
         </div>
         
-        <div className="max-w-6xl mx-auto">
-          <div className="relative">
-            <div className="absolute -top-10 left-8 opacity-30">
-              <Quote size={80} />
-            </div>
-            
-            <div className="relative z-10">
-              <div className="overflow-hidden" ref={emblaRef}>
-                <div className="flex">
-                  {testimonials.map((testimonial) => (
-                    <div key={testimonial.id} className="min-w-0 flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.33%] px-4">
-                      <Card className="bg-white text-civitas-dark h-full">
-                        <CardContent className="p-6">
-                          <div className="flex mb-3">
-                            {[...Array(testimonial.rating)].map((_, i) => (
-                              <Star key={i} className="text-yellow-400 fill-yellow-400" size={16} />
-                            ))}
-                          </div>
-                          
-                          <blockquote className="text-lg mb-4 italic">
-                            "{testimonial.quote}"
-                          </blockquote>
-                          
-                          <div className="flex items-center">
-                            <div className="shrink-0 mr-4">
-                              <img 
-                                src={testimonial.image} 
-                                alt={testimonial.name} 
-                                className="w-14 h-14 rounded-full object-cover border-2 border-civitas-light"
-                              />
-                            </div>
-                            <div>
-                              <div className="font-semibold">{testimonial.name}</div>
-                              <div className="text-sm text-civitas-dark/70">
-                                {testimonial.position}, {testimonial.location}
-                              </div>
-                              <div className="text-xs text-civitas-primary font-medium mt-1">
-                                {testimonial.service}
-                              </div>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
+        <div className="embla" ref={emblaRef}>
+          <div className="embla__container flex -ml-6">
+            {testimonials.map((testimonial, index) => (
+              <div className="embla__slide relative min-w-full pl-6" key={testimonial.id}>
+                <div className="bg-white rounded-lg shadow-md p-6 flex flex-col h-full">
+                  <div className="flex items-center mb-4">
+                    <img 
+                      src={testimonial.image} 
+                      alt={testimonial.name} 
+                      className="w-16 h-16 rounded-full object-cover mr-4" 
+                    />
+                    <div>
+                      <h4 className="text-lg font-semibold">{testimonial.name}</h4>
+                      <p className="text-civitas-dark/70 text-sm">{testimonial.title}</p>
                     </div>
-                  ))}
+                  </div>
+                  <div className="mb-4">
+                    <div className="flex items-center">
+                      {Array.from({ length: testimonial.rating }, (_, i) => (
+                        <Star key={i} className="text-yellow-500 w-5 h-5 mr-1" />
+                      ))}
+                    </div>
+                  </div>
+                  <p className="text-civitas-dark/80 flex-grow">{testimonial.text}</p>
                 </div>
               </div>
-            </div>
-          </div>
-          
-          {/* Dots navigation */}
-          <div className="flex justify-center mt-8 space-x-2">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => emblaApi?.scrollTo(index, true)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  activeIndex === index ? 'bg-white scale-125' : 'bg-white/30'
-                }`}
-                aria-label={`Go to testimonial ${index + 1}`}
-              />
             ))}
           </div>
+        </div>
+
+        <div className="embla__dots flex justify-center mt-8">
+          {scrollSnaps.map((_, index) => (
+            <button
+              key={index}
+              className={`embla__dot w-3 h-3 rounded-full mx-1 ${index === selectedIndex ? 'bg-civitas-primary' : 'bg-gray-300'}`}
+              onClick={() => scrollTo(index)}
+            />
+          ))}
         </div>
       </div>
     </section>

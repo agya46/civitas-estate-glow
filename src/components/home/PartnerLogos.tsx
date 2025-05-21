@@ -8,33 +8,33 @@ import {
 const partners = [
   {
     id: 1,
-    name: 'Acme Construction',
-    logo: 'https://images.unsplash.com/photo-1560179304-c5a71bc094ed?auto=format&fit=crop&q=80&w=200'
-  },
-  {
-    id: 2,
-    name: 'TechBuild Inc.',
-    logo: 'https://images.unsplash.com/photo-1661956602944-249bcd04b63f?auto=format&fit=crop&q=80&w=200'
-  },
-  {
-    id: 3,
-    name: 'GreenWorks',
+    name: 'Devtraco Plus',
     logo: 'https://images.unsplash.com/photo-1560472355-536de3962603?auto=format&fit=crop&q=80&w=200'
   },
   {
-    id: 4,
-    name: 'BuildRight Construction',
+    id: 2,
+    name: 'Regimanuel Gray',
     logo: 'https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?auto=format&fit=crop&q=80&w=200'
   },
   {
-    id: 5,
-    name: 'EcoRenovate',
+    id: 3,
+    name: 'GoldKey Properties',
     logo: 'https://images.unsplash.com/photo-1587614313085-5da51cebd8ac?auto=format&fit=crop&q=80&w=200'
   },
   {
-    id: 6,
-    name: 'Urban Designs',
+    id: 4,
+    name: 'Lakeside Estate',
     logo: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=200'
+  },
+  {
+    id: 5,
+    name: 'Trasacco Group',
+    logo: 'https://images.unsplash.com/photo-1560179304-c5a71bc094ed?auto=format&fit=crop&q=80&w=200'
+  },
+  {
+    id: 6,
+    name: 'Manet Properties',
+    logo: 'https://images.unsplash.com/photo-1661956602944-249bcd04b63f?auto=format&fit=crop&q=80&w=200'
   }
 ];
 
@@ -42,11 +42,6 @@ const PartnerLogos = () => {
   return (
     <section className="py-12 bg-gray-50">
       <div className="container mx-auto">
-        <div className="text-center mb-8">
-          <h3 className="text-xl font-semibold text-civitas-dark mb-2">Our Trusted Partners</h3>
-          <p className="text-civitas-dark/70">We collaborate with industry leaders to deliver excellence</p>
-        </div>
-        
         <div className="max-w-6xl mx-auto">
           <Carousel
             opts={{

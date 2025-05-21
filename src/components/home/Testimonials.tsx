@@ -8,6 +8,7 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const testimonials = [
   {
@@ -15,7 +16,7 @@ const testimonials = [
     name: 'Ama Serwaa',
     title: 'Property Owner',
     text: "Civitas has been a game-changer for managing my properties. Their maintenance team is responsive and professional, ensuring my tenants are always satisfied.",
-    image: 'https://images.unsplash.com/photo-1573496800643-6135b3ebad96?auto=format&fit=crop&q=80&w=200',
+    image: 'https://images.unsplash.com/photo-1531123414780-f74242c2b052?auto=format&fit=crop&q=80&w=200',
     rating: 5
   },
   {
@@ -23,7 +24,7 @@ const testimonials = [
     name: 'Kwame Boateng',
     title: 'Real Estate Investor',
     text: "I've used Civitas for several renovation projects, and their attention to detail is unmatched. They consistently deliver high-quality results on time and within budget.",
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200',
+    image: 'https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?auto=format&fit=crop&q=80&w=200',
     rating: 4
   },
   {
@@ -31,7 +32,7 @@ const testimonials = [
     name: 'Nana Yaa',
     title: 'Homeowner',
     text: "From plumbing repairs to electrical work, Civitas handles all my home maintenance needs. Their 24/7 emergency service is a lifesaver!",
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200',
+    image: 'https://images.unsplash.com/photo-1548142813-c348350df52b?auto=format&fit=crop&q=80&w=200',
     rating: 5
   },
   {
@@ -39,7 +40,7 @@ const testimonials = [
     name: 'Kofi Mensah',
     title: 'Commercial Property Manager',
     text: "Civitas provides comprehensive property management services for my commercial properties. Their proactive approach and transparent communication make them an invaluable partner.",
-    image: 'https://images.unsplash.com/photo-1544006659-f0b21884cebd?auto=format&fit=crop&q=80&w=200',
+    image: 'https://images.unsplash.com/photo-1539701938214-0d9736e1c16b?auto=format&fit=crop&q=80&w=200',
     rating: 4
   },
   {
@@ -47,7 +48,7 @@ const testimonials = [
     name: 'Abena Serwaa',
     title: 'Landlord',
     text: "I highly recommend Civitas for anyone looking for reliable and efficient property maintenance services. Their team is professional, courteous, and always goes the extra mile.",
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b2933e?auto=format&fit=crop&q=80&w=200',
+    image: 'https://images.unsplash.com/photo-1563122870-6b0b48a0af09?auto=format&fit=crop&q=80&w=200',
     rating: 5
   }
 ];
@@ -73,8 +74,9 @@ const Testimonials = () => {
             }}
             className="w-full"
             onSelect={(index) => {
-              // Fix: Now we're receiving the index directly
-              setActiveIndex(index || 0);
+              if (typeof index === 'number') {
+                setActiveIndex(index);
+              }
             }}
           >
             <CarouselContent>
@@ -82,11 +84,16 @@ const Testimonials = () => {
                 <CarouselItem key={testimonial.id}>
                   <div className="bg-white rounded-lg shadow-md p-6 flex flex-col h-full">
                     <div className="flex items-center mb-4">
-                      <img 
-                        src={testimonial.image} 
-                        alt={testimonial.name} 
-                        className="w-16 h-16 rounded-full object-cover mr-4" 
-                      />
+                      <Avatar className="w-16 h-16 mr-4 border-2 border-civitas-primary">
+                        <AvatarImage 
+                          src={testimonial.image} 
+                          alt={testimonial.name} 
+                          className="object-cover" 
+                        />
+                        <AvatarFallback className="bg-civitas-primary text-white">
+                          {testimonial.name.split(' ').map(name => name[0]).join('')}
+                        </AvatarFallback>
+                      </Avatar>
                       <div>
                         <h4 className="text-lg font-semibold">{testimonial.name}</h4>
                         <p className="text-civitas-dark/70 text-sm">{testimonial.title}</p>
@@ -108,13 +115,7 @@ const Testimonials = () => {
               {testimonials.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => {
-                    const carousel = document.querySelector("[data-carousel]");
-                    if (carousel) {
-                      const api = Carousel.useCarousel(carousel);
-                      api?.scrollTo(index);
-                    }
-                  }}
+                  onClick={() => setActiveIndex(index)}
                   className={`w-3 h-3 rounded-full mx-1 ${index === activeIndex ? 'bg-civitas-primary' : 'bg-gray-300'}`}
                   aria-label={`Go to slide ${index + 1}`}
                 />

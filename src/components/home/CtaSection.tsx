@@ -42,7 +42,7 @@ const CtaSection = () => {
                   Book a Service <ArrowRight className="ml-2" size={16} />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
+              <Button asChild variant="secondary" size="lg" className="bg-civitas-secondary hover:bg-civitas-secondary/90 text-white">
                 <a href="tel:+1234567890" className="flex items-center">
                   <Phone className="mr-2" size={16} />
                   Call Us Now

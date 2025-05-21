@@ -72,7 +72,10 @@ const Testimonials = () => {
               loop: true,
             }}
             className="w-full"
-            onSelect={(api) => setActiveIndex(api?.selectedScrollSnap() || 0)}
+            onSelect={(index) => {
+              // Fix: Now we're receiving the index directly
+              setActiveIndex(index || 0);
+            }}
           >
             <CarouselContent>
               {testimonials.map((testimonial) => (
@@ -106,9 +109,10 @@ const Testimonials = () => {
                 <button
                   key={index}
                   onClick={() => {
-                    const api = document.querySelector(".embla")?.getAttribute("data-embla-api");
-                    if (api) {
-                      JSON.parse(api).scrollTo(index);
+                    const carousel = document.querySelector("[data-carousel]");
+                    if (carousel) {
+                      const api = Carousel.useCarousel(carousel);
+                      api?.scrollTo(index);
                     }
                   }}
                   className={`w-3 h-3 rounded-full mx-1 ${index === activeIndex ? 'bg-civitas-primary' : 'bg-gray-300'}`}

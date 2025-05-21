@@ -1,10 +1,13 @@
-import React, { useState, useEffect, useCallback } from 'react';
+
+import React, { useState } from 'react';
 import { Star } from 'lucide-react';
-import { 
-  useEmblaCarousel, 
-  EmblaCarouselType 
-} from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
 
 const testimonials = [
   {
@@ -50,34 +53,7 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 5000, stopOnInteraction: false }),
-  ]);
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
-
-  const scrollTo = useCallback(
-    (index: number) => {
-      emblaApi && emblaApi.scrollTo(index, true);
-    },
-    [emblaApi]
-  );
-
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    setScrollSnaps(emblaApi.scrollSnapList());
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-
-    const onSelect = () => {
-      setSelectedIndex(emblaApi.selectedScrollSnap());
-    };
-
-    emblaApi.on("select", onSelect);
-    return () => {
-      emblaApi.off("select", onSelect);
-    };
-  }, [emblaApi, setScrollSnaps, setSelectedIndex]);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section className="section-padding">
@@ -89,44 +65,60 @@ const Testimonials = () => {
           </p>
         </div>
         
-        <div className="embla" ref={emblaRef}>
-          <div className="embla__container flex -ml-6">
-            {testimonials.map((testimonial, index) => (
-              <div className="embla__slide relative min-w-full pl-6" key={testimonial.id}>
-                <div className="bg-white rounded-lg shadow-md p-6 flex flex-col h-full">
-                  <div className="flex items-center mb-4">
-                    <img 
-                      src={testimonial.image} 
-                      alt={testimonial.name} 
-                      className="w-16 h-16 rounded-full object-cover mr-4" 
-                    />
-                    <div>
-                      <h4 className="text-lg font-semibold">{testimonial.name}</h4>
-                      <p className="text-civitas-dark/70 text-sm">{testimonial.title}</p>
+        <div className="max-w-4xl mx-auto">
+          <Carousel
+            opts={{
+              align: "center",
+              loop: true,
+            }}
+            className="w-full"
+            onSelect={(api) => setActiveIndex(api?.selectedScrollSnap() || 0)}
+          >
+            <CarouselContent>
+              {testimonials.map((testimonial) => (
+                <CarouselItem key={testimonial.id}>
+                  <div className="bg-white rounded-lg shadow-md p-6 flex flex-col h-full">
+                    <div className="flex items-center mb-4">
+                      <img 
+                        src={testimonial.image} 
+                        alt={testimonial.name} 
+                        className="w-16 h-16 rounded-full object-cover mr-4" 
+                      />
+                      <div>
+                        <h4 className="text-lg font-semibold">{testimonial.name}</h4>
+                        <p className="text-civitas-dark/70 text-sm">{testimonial.title}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="mb-4">
-                    <div className="flex items-center">
-                      {Array.from({ length: testimonial.rating }, (_, i) => (
-                        <Star key={i} className="text-yellow-500 w-5 h-5 mr-1" />
-                      ))}
+                    <div className="mb-4">
+                      <div className="flex items-center">
+                        {Array.from({ length: testimonial.rating }, (_, i) => (
+                          <Star key={i} className="text-yellow-500 w-5 h-5 mr-1" />
+                        ))}
+                      </div>
                     </div>
+                    <p className="text-civitas-dark/80 flex-grow">{testimonial.text}</p>
                   </div>
-                  <p className="text-civitas-dark/80 flex-grow">{testimonial.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="embla__dots flex justify-center mt-8">
-          {scrollSnaps.map((_, index) => (
-            <button
-              key={index}
-              className={`embla__dot w-3 h-3 rounded-full mx-1 ${index === selectedIndex ? 'bg-civitas-primary' : 'bg-gray-300'}`}
-              onClick={() => scrollTo(index)}
-            />
-          ))}
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex items-center justify-center mt-8 space-x-2">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    const api = document.querySelector(".embla")?.getAttribute("data-embla-api");
+                    if (api) {
+                      JSON.parse(api).scrollTo(index);
+                    }
+                  }}
+                  className={`w-3 h-3 rounded-full mx-1 ${index === activeIndex ? 'bg-civitas-primary' : 'bg-gray-300'}`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+            <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2" />
+            <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2" />
+          </Carousel>
         </div>
       </div>
     </section>

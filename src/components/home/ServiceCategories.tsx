@@ -6,7 +6,8 @@ import {
   PaintRoller, 
   Building, 
   House,
-  ArrowRight 
+  ArrowRight,
+  Shower
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
@@ -77,6 +78,20 @@ const services = [
     subServices: [
       { name: 'Custom Design', link: '/services/architectural-design' },
       { name: 'Blueprint Planning', link: '/services/architectural-design' },
+    ]
+  },
+  {
+    id: 6,
+    title: 'Cleaning',
+    description: 'Professional cleaning services for residential and commercial properties.',
+    icon: Shower,
+    link: '/services/cleaning',
+    color: 'bg-cyan-50 text-cyan-700',
+    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80&w=500',
+    subServices: [
+      { name: 'Deep Cleaning', link: '/services/cleaning/deep-cleaning' },
+      { name: 'Regular Maintenance', link: '/services/cleaning/regular-maintenance' },
+      { name: 'Move-in/Move-out', link: '/services/cleaning/move-in-out' },
     ]
   },
 ];

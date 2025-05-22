@@ -3,6 +3,15 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { 
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger
+} from "@/components/ui/navigation-menu";
+import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,6 +25,15 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const serviceCategories = [
+    { name: 'Maintenance', href: '/services/maintenance' },
+    { name: 'Installations', href: '/services/installations' },
+    { name: 'Renovation', href: '/services/renovation' },
+    { name: 'Property Management', href: '/services/property-management' },
+    { name: 'Architectural Design', href: '/services/architectural-design' },
+    { name: 'Cleaning', href: '/services/cleaning' }
+  ];
 
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-5'}`}>
@@ -38,9 +56,33 @@ const Navbar = () => {
             <Link to="/" className="text-civitas-dark hover:text-civitas-primary transition-colors">
               Home
             </Link>
-            <Link to="/services" className="text-civitas-dark hover:text-civitas-primary transition-colors">
-              Services
-            </Link>
+            
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="bg-transparent text-civitas-dark hover:text-civitas-primary hover:bg-transparent">
+                    Services
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                      {serviceCategories.map((category) => (
+                        <li key={category.name}>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              to={category.href}
+                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                            >
+                              <div className="text-sm font-medium leading-none">{category.name}</div>
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+
             <Link to="/portfolio" className="text-civitas-dark hover:text-civitas-primary transition-colors">
               Portfolio
             </Link>
@@ -77,13 +119,23 @@ const Navbar = () => {
             >
               Home
             </Link>
-            <Link 
-              to="/services" 
-              onClick={() => setIsMenuOpen(false)}
-              className="text-civitas-dark hover:text-civitas-primary transition-colors p-2"
-            >
-              Services
-            </Link>
+            
+            <div className="relative">
+              <div className="font-medium p-2">Services</div>
+              <div className="pl-4 space-y-2 mt-1">
+                {serviceCategories.map((category) => (
+                  <Link 
+                    key={category.name}
+                    to={category.href} 
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-civitas-dark hover:text-civitas-primary transition-colors p-2 block"
+                  >
+                    {category.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            
             <Link 
               to="/portfolio" 
               onClick={() => setIsMenuOpen(false)}

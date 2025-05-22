@@ -17,6 +17,7 @@ import Installations from "./pages/services/Installations";
 import Renovation from "./pages/services/Renovation";
 import PropertyManagement from "./pages/services/PropertyManagement";
 import ArchitecturalDesign from "./pages/services/ArchitecturalDesign";
+import Cleaning from "./pages/services/Cleaning";
 
 // Maintenance Service Detail Pages
 import MaintenanceElectricals from "./pages/services/MaintenanceElectricals";
@@ -39,6 +40,9 @@ import GreenConstructionService from "./pages/services/renovation/GreenConstruct
 // Property Management Service Detail Pages
 import ResidentialPropertyManagementService from "./pages/services/property-management/Residential";
 import CommercialPropertyManagementService from "./pages/services/property-management/Commercial";
+
+// Cleaning Service Detail Pages
+import DeepCleaningService from "./pages/services/cleaning/DeepCleaning";
 
 // Portfolio Pages
 import Portfolio from "./pages/Portfolio";
@@ -65,6 +69,7 @@ const App = () => (
           <Route path="/services/renovation" element={<Renovation />} />
           <Route path="/services/property-management" element={<PropertyManagement />} />
           <Route path="/services/architectural-design" element={<ArchitecturalDesign />} />
+          <Route path="/services/cleaning" element={<Cleaning />} />
           
           {/* Maintenance Service Detail Pages */}
           <Route path="/services/maintenance/electricals" element={<MaintenanceElectricals />} />
@@ -87,6 +92,9 @@ const App = () => (
           {/* Property Management Service Detail Pages */}
           <Route path="/services/property-management/residential" element={<ResidentialPropertyManagementService />} />
           <Route path="/services/property-management/commercial" element={<CommercialPropertyManagementService />} />
+          
+          {/* Cleaning Service Detail Pages */}
+          <Route path="/services/cleaning/deep-cleaning" element={<DeepCleaningService />} />
           
           {/* Portfolio Pages */}
           <Route path="/portfolio" element={<Portfolio />} />

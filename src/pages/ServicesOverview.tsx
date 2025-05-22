@@ -8,7 +8,8 @@ import {
   Building, 
   House,
   ArrowRight,
-  Check
+  Check,
+  Shower
 } from 'lucide-react';
 
 // Service categories with their sub-services
@@ -75,6 +76,20 @@ const serviceCategories = [
     color: 'bg-indigo-50 text-indigo-700',
     link: '/services/architectural-design',
     subservices: []
+  },
+  {
+    id: 'cleaning',
+    title: 'Cleaning',
+    description: 'Professional cleaning services for residential and commercial properties.',
+    icon: Shower,
+    color: 'bg-cyan-50 text-cyan-700',
+    link: '/services/cleaning',
+    subservices: [
+      { name: 'Deep Cleaning', link: '/services/cleaning/deep-cleaning' },
+      { name: 'Post-Construction', link: '/services/cleaning/post-construction' },
+      { name: 'Regular Maintenance', link: '/services/cleaning/regular-maintenance' },
+      { name: 'Move-in/Move-out', link: '/services/cleaning/move-in-out' }
+    ]
   }
 ];
 

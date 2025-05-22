@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -17,7 +16,8 @@ import {
   PaintRoller, 
   Building, 
   House, 
-  Check 
+  Check,
+  Bath
 } from 'lucide-react';
 import { useToast } from "@/components/ui/use-toast";
 import { Link } from 'react-router-dom';
@@ -62,6 +62,14 @@ const services = [
     bgColor: "bg-indigo-50",
     color: "text-indigo-700",
     link: "/services/architectural-design"
+  },
+  {
+    id: "cleaning",
+    title: "Cleaning",
+    icon: Bath,
+    bgColor: "bg-cyan-50",
+    color: "text-cyan-700",
+    link: "/services/cleaning"
   }
 ];
 

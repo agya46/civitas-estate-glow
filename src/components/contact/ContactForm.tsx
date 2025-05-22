@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '@/hooks/use-toast';
@@ -25,6 +24,10 @@ const serviceCategories = [
   {
     label: 'Architectural Design',
     options: ['Design Consultation', 'Planning', 'Blueprint Creation']
+  },
+  {
+    label: 'Cleaning',
+    options: ['Deep Cleaning', 'Regular Maintenance', 'Post-Construction', 'Move-in/Move-out']
   }
 ];
 

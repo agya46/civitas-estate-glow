@@ -1,6 +1,9 @@
 
 import React from 'react';
 import ServiceDetailLayout from '../../../components/services/ServiceDetailLayout';
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { Calendar, Check } from 'lucide-react';
 
 const RegularMaintenanceCleaning = () => {
   const relatedServices = [
@@ -21,6 +24,17 @@ const RegularMaintenanceCleaning = () => {
           Our regular maintenance cleaning services provide consistent, scheduled cleaning to keep 
           your residential or commercial property in pristine condition.
         </p>
+        
+        <div className="not-prose mb-8">
+          <div className="flex flex-wrap gap-4 mt-6">
+            <Button asChild className="bg-civitas-primary hover:bg-civitas-primary/90">
+              <Link to="/contact">Book This Service</Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link to="/contact">Get a Free Quote</Link>
+            </Button>
+          </div>
+        </div>
         
         <h2>What is Regular Maintenance Cleaning?</h2>
         <p>
@@ -43,16 +57,30 @@ const RegularMaintenanceCleaning = () => {
           <li>Spot cleaning of walls and fixtures</li>
         </ul>
         
-        <h2>Maintenance Cleaning Schedule Options</h2>
-        <p>
-          We offer flexible scheduling options to suit your needs:
-        </p>
-        <ul className="space-y-2">
-          <li>Weekly cleaning</li>
-          <li>Bi-weekly cleaning</li>
-          <li>Monthly cleaning</li>
-          <li>Custom schedules based on your requirements</li>
-        </ul>
+        <div className="not-prose bg-civitas-light/30 p-6 rounded-lg my-8">
+          <div className="flex items-center mb-4">
+            <Calendar className="text-civitas-primary mr-3" size={24} />
+            <h3 className="text-xl font-semibold">Maintenance Cleaning Schedule Options</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="flex items-start">
+              <Check className="text-civitas-primary mr-2 mt-1" />
+              <span>Weekly cleaning</span>
+            </div>
+            <div className="flex items-start">
+              <Check className="text-civitas-primary mr-2 mt-1" />
+              <span>Bi-weekly cleaning</span>
+            </div>
+            <div className="flex items-start">
+              <Check className="text-civitas-primary mr-2 mt-1" />
+              <span>Monthly cleaning</span>
+            </div>
+            <div className="flex items-start">
+              <Check className="text-civitas-primary mr-2 mt-1" />
+              <span>Custom schedules available</span>
+            </div>
+          </div>
+        </div>
         
         <h2>Benefits of Regular Maintenance Cleaning</h2>
         <p>
@@ -95,11 +123,19 @@ const RegularMaintenanceCleaning = () => {
           <li><strong>Commercial:</strong> Emphasis on common areas, workspaces, reception areas, and restrooms</li>
         </ul>
         
-        <p>
-          Trust Civitas to provide reliable, thorough, and consistent cleaning services that keep your property 
-          looking its best. Our trained professionals use high-quality, eco-friendly products to deliver exceptional 
-          results with each visit.
-        </p>
+        <div className="not-prose bg-civitas-primary/10 p-6 rounded-lg my-8">
+          <h3 className="text-xl font-semibold mb-4">Ready to Schedule Your Regular Cleaning?</h3>
+          <p className="mb-4">Trust Civitas to provide reliable, thorough, and consistent cleaning services that keep your property 
+          looking its best. Contact us today to set up your personalized cleaning schedule.</p>
+          <div className="flex flex-wrap gap-4">
+            <Button asChild>
+              <Link to="/contact">Book Now</Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link to="/contact">Get a Quote</Link>
+            </Button>
+          </div>
+        </div>
       </section>
     </ServiceDetailLayout>
   );

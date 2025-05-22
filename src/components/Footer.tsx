@@ -52,19 +52,19 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
                 <MapPin size={18} className="text-civitas-secondary shrink-0 mt-1" />
-                <span className="text-gray-300">123 Estate Avenue, City, State 12345</span>
+                <span className="text-gray-300">Hospital Junction, of Ofanko Sowutuom Road, Accra</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={18} className="text-civitas-secondary" />
-                <span className="text-gray-300">(123) 456-7890</span>
+                <span className="text-gray-300">0555062589</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={18} className="text-civitas-secondary" />
-                <span className="text-gray-300">info@civitasestate.com</span>
+                <span className="text-gray-300">admin@civitasestate.com</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Clock size={18} className="text-civitas-secondary" />
-                <span className="text-gray-300">Mon-Fri: 8am - 6pm</span>
+                <span className="text-gray-300">Mon-Fri: 8am - 5pm</span>
               </li>
             </ul>
           </div>

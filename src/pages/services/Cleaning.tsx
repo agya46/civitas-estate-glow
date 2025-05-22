@@ -271,7 +271,7 @@ const Cleaning = () => {
             <Button asChild className="bg-white text-civitas-primary hover:bg-white/90">
               <Link to="/contact">Book a Service</Link>
             </Button>
-            <Button asChild variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button asChild variant="outline" className="border-white text-white hover:bg-white/10 bg-civitas-secondary">
               <Link to="/contact">Get a Quote</Link>
             </Button>
           </div>

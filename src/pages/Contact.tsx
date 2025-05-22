@@ -8,25 +8,25 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Phone',
-      details: '(123) 456-7890',
-      subtext: 'Mon-Fri from 8am to 6pm'
+      details: '0555062589',
+      subtext: 'Mon-Fri from 8am to 5pm'
     },
     {
       icon: Mail,
       title: 'Email',
-      details: 'info@civitasestate.com',
+      details: 'admin@civitasestate.com',
       subtext: 'We reply within 24 hours'
     },
     {
       icon: MapPin,
       title: 'Office',
-      details: '123 Estate Avenue',
-      subtext: 'City, State 12345'
+      details: 'Hospital Junction, of Ofanko Sowutuom Road',
+      subtext: 'Accra, Ghana'
     },
     {
       icon: Clock,
       title: 'Working Hours',
-      details: 'Mon-Fri: 8am - 6pm',
+      details: 'Mon-Fri: 8am - 5pm',
       subtext: 'Sat: 9am - 1pm (by appointment)'
     }
   ];

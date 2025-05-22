@@ -65,19 +65,22 @@ const About = () => {
             <div>
               <h2 className="text-3xl font-bold mb-6">Our Story</h2>
               <p className="text-lg mb-4">
-                Civitas Estate & Maintenance was founded in 2005 with a simple mission: to provide exceptional property maintenance and management services that property owners could trust.
+                Civitas Estate & Maintenance is a pioneering Ghanaian firm at the forefront of urban transformation in Africa. Established in 2025, we specialize in Smart Cities, Green Housing, Renewable Energy Solutions, and Integrated Estate Management.
               </p>
               <p className="text-lg mb-4">
-                What began as a small team of dedicated professionals has grown into a comprehensive estate services company, serving both residential and commercial clients across the region.
+                Our mission is to shape the future of African cities by blending cutting-edge technology, sustainable engineering, and impact-driven initiatives.
+              </p>
+              <p className="text-lg mb-4">
+                We are dedicated to designing, building, and maintaining eco-friendly, energy-efficient infrastructures that not only enhance urban living but also support the United Nations Sustainable Development Goals (SDGs).
               </p>
               <p className="text-lg">
-                Our growth has been built on a foundation of quality, reliability, and customer satisfaction. We're proud of our journey and excited about continuing to serve our community with excellence.
+                By fostering strong public-private partnerships, Civitas Estate & Maintenance delivers scalable solutions that drive positive change and long-term value for communities. Join us as we redefine urban development—creating smarter, greener, and more resilient cities for generations to come.
               </p>
             </div>
             <div className="rounded-lg overflow-hidden shadow-xl">
               <img 
-                src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80" 
-                alt="Civitas team working together" 
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80" 
+                alt="African handylady from Civitas team" 
                 className="w-full h-[400px] object-cover"
               />
             </div>

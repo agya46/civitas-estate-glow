@@ -10,8 +10,8 @@ const TrustSignals = () => {
     },
     {
       icon: Calendar,
-      title: "10+ Years Experience",
-      description: "Serving residential and commercial properties with excellence since 2012."
+      title: "5 Years Experience",
+      description: "Serving residential and commercial properties with excellence since 2020."
     },
     {
       icon: Users,

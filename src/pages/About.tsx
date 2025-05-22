@@ -1,4 +1,3 @@
-
 import Layout from '../components/Layout';
 import { Users, Heart, Check, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -28,7 +27,7 @@ const About = () => {
       name: 'Robert Johnson',
       position: 'Chief Executive Officer',
       image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200',
-      bio: 'With over 20 years of experience in property management and construction.'
+      bio: 'With over 5 years of experience in property management and construction.'
     },
     {
       name: 'Emily Chen',
@@ -52,7 +51,7 @@ const About = () => {
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">About Civitas</h1>
             <p className="text-xl opacity-90">
-              Building trust through quality service since 2005. Learn about our mission, values, and the team behind our success.
+              Building trust through quality service since 2020. Learn about our mission, values, and the team behind our success.
             </p>
           </div>
         </div>
@@ -65,7 +64,7 @@ const About = () => {
             <div>
               <h2 className="text-3xl font-bold mb-6">Our Story</h2>
               <p className="text-lg mb-4">
-                Civitas Estate & Maintenance is a pioneering Ghanaian firm at the forefront of urban transformation in Africa. Established in 2025, we specialize in Smart Cities, Green Housing, Renewable Energy Solutions, and Integrated Estate Management.
+                Civitas Estate & Maintenance is a pioneering Ghanaian firm at the forefront of urban transformation in Africa. Established in 2020, we specialize in Smart Cities, Green Housing, Renewable Energy Solutions, and Integrated Estate Management.
               </p>
               <p className="text-lg mb-4">
                 Our mission is to shape the future of African cities by blending cutting-edge technology, sustainable engineering, and impact-driven initiatives.

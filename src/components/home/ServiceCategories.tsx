@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { 
   Wrench, 
@@ -7,7 +6,7 @@ import {
   Building, 
   House,
   ArrowRight,
-  Shower
+  Bath
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
@@ -84,7 +83,7 @@ const services = [
     id: 6,
     title: 'Cleaning',
     description: 'Professional cleaning services for residential and commercial properties.',
-    icon: Shower,
+    icon: Bath,
     link: '/services/cleaning',
     color: 'bg-cyan-50 text-cyan-700',
     image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80&w=500',

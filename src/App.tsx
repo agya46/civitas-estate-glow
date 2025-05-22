@@ -43,6 +43,9 @@ import CommercialPropertyManagementService from "./pages/services/property-manag
 
 // Cleaning Service Detail Pages
 import DeepCleaningService from "./pages/services/cleaning/DeepCleaning";
+import RegularMaintenanceCleaning from "./pages/services/cleaning/RegularMaintenance";
+import PostConstructionCleaning from "./pages/services/cleaning/PostConstruction";
+import MoveInOutCleaning from "./pages/services/cleaning/MoveInOut";
 
 // Portfolio Pages
 import Portfolio from "./pages/Portfolio";
@@ -95,6 +98,9 @@ const App = () => (
           
           {/* Cleaning Service Detail Pages */}
           <Route path="/services/cleaning/deep-cleaning" element={<DeepCleaningService />} />
+          <Route path="/services/cleaning/regular-maintenance" element={<RegularMaintenanceCleaning />} />
+          <Route path="/services/cleaning/post-construction" element={<PostConstructionCleaning />} />
+          <Route path="/services/cleaning/move-in-out" element={<MoveInOutCleaning />} />
           
           {/* Portfolio Pages */}
           <Route path="/portfolio" element={<Portfolio />} />

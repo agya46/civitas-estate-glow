@@ -9,7 +9,7 @@ import {
   House,
   ArrowRight,
   Check,
-  Shower
+  Bath
 } from 'lucide-react';
 
 // Service categories with their sub-services
@@ -81,7 +81,7 @@ const serviceCategories = [
     id: 'cleaning',
     title: 'Cleaning',
     description: 'Professional cleaning services for residential and commercial properties.',
-    icon: Shower,
+    icon: Bath,
     color: 'bg-cyan-50 text-cyan-700',
     link: '/services/cleaning',
     subservices: [

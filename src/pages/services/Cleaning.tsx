@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 import { 
   Check, 
   ArrowRight,
-  Shower,
+  Bath,
   CalendarCheck,
-  BrushClean,
+  ShowerHead
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
@@ -83,7 +83,7 @@ const Cleaning = () => {
             <div>
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 rounded-full bg-cyan-50 text-cyan-700 flex items-center justify-center mr-4">
-                  <Shower size={24} />
+                  <Bath size={24} />
                 </div>
                 <h2 className="text-3xl font-bold">Cleaning Services</h2>
               </div>
